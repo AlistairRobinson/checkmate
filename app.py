@@ -66,7 +66,7 @@ def register():
             'key_hash': request.json['key'],
         })
         if api is None:
-            abort(400)
+            abort(403)
         words = generate_words()
         pin = generate_pin()
         db.registry.insert_one({
