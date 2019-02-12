@@ -28,7 +28,22 @@ def register():
     if not request.json or not 'key' in request.json or not 'email' in request.json:
         abort(400)
     else:
-        abort(400)
+        words = generate_words()
+        pin = generate_pin()
+        db.registry.insert_one({
+            'key_hash': request.json['key'],
+            'email_hash': request.json['email'],
+            'w1': words[0],
+            'w2': words[1],
+            'w3': words[2],
+            'pin': pin
+        })
+        return jsonify({
+            'w1': words[0],
+            'w2': words[1],
+            'w3': words[2],
+            'pin': pin
+        }), 200
 
 @app.route('/add', methods = ['POST'])
 def add():
