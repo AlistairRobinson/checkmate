@@ -1,5 +1,6 @@
 from flask import Flask, request, abort, jsonify
 from pymongo import MongoClient
+from datetime import datetime
 
 app = Flask(__name__)
 client = MongoClient('localhost', 27017)
@@ -28,7 +29,7 @@ def register():
     if not request.json or not 'key' in request.json or not 'email' in request.json:
         abort(400)
     else:
-        api = db.registry.find_one({
+        api = db.api.find_one({
             'key_hash': request.json['key'],
         })
         if api is None:
@@ -53,6 +54,10 @@ def register():
 @app.route('/add', methods = ['POST'])
 def add():
     if not request.json or not 'key' in request.json:
-        abort(400)
+        db.api.insert_one({
+            'key_hash': request.json['key'],
+            'date_registered': datetime.now()
+        })
+        return 200
     else:
         abort(400)
