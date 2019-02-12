@@ -19,8 +19,8 @@ def register():
     else:
         abort(400)
 
-@app.route('/register', methods = ['POST'])
-def register():
+@app.route('/add', methods = ['POST'])
+def add():
     if not request.json or not 'key' in request.json:
         abort(400)
     else:
