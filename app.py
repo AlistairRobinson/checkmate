@@ -18,3 +18,10 @@ def register():
         abort(400)
     else:
         abort(400)
+
+@app.route('/register', methods = ['POST'])
+def register():
+    if not request.json or not 'key' in request.json:
+        abort(400)
+    else:
+        abort(400)
