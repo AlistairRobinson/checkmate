@@ -87,10 +87,17 @@ def register():
 @app.route('/add', methods = ['POST'])
 def add():
     if not request.json or not 'key' in request.json:
+        abort(400)
+    else:
+        api = db.api.find_one({
+            'key_hash': request.json['key'],
+        })
+        if api is not None:
+            abort(400)
         db.api.insert_one({
             'key_hash': request.json['key'],
             'date_registered': datetime.now()
         })
-        return 200
-    else:
-        abort(400)
+        return jsonify({
+            'key': request.json['key']
+        }), 200"
