@@ -28,6 +28,11 @@ def register():
     if not request.json or not 'key' in request.json or not 'email' in request.json:
         abort(400)
     else:
+        api = db.registry.find_one({
+            'key_hash': request.json['key'],
+        })
+        if api is None:
+            abort(400)
         words = generate_words()
         pin = generate_pin()
         db.registry.insert_one({
