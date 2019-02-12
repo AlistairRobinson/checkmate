@@ -13,7 +13,7 @@ def retrieve():
         abort(400)
 
 @app.route('/register', methods = ['POST'])
-def retrieve():
+def register():
     if not request.json or not 'key' in request.json or not 'email' in request.json:
         abort(400)
     else:
