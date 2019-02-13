@@ -3,6 +3,8 @@ from pymongo import MongoClient
 from datetime import datetime
 from hashlib import pbkdf2_hmac
 import random
+import secrets
+import binascii
 
 app = Flask(__name__)
 client = MongoClient('localhost', 27017)
@@ -19,6 +21,13 @@ with open('dict/adjectives.txt') as f:
 
 with open('dict/adverbs.txt') as f:
     adverbs = [l.rstrip('\n') for l in f]
+
+with open('secret/auth.txt') as f:
+    auth = [l.rstrip('\n') for l in f]
+
+with open('secret/salt.txt') as f:
+    key_salt = [l.rstrip('\n') for l in f]
+    key_salt = key_salt[0]
 
 def generate_pin():
     random.seed(datetime.now())
@@ -37,11 +46,16 @@ def generate_words():
     }
     return case_of.get(random.randint(1, 7))
 
+def generate_key():
+    return secrets.token_urlsafe(64)
+
 print(generate_pin())
 print(generate_words())
+print(generate_key())
+print(key_salt)
 
 def hash(password, salt):
-    return pbkdf2_hmac('sha512', password, salt, 2048)
+    return binascii.b2a_base64(pbkdf2_hmac('sha512', password.encode(), salt.encode(), 2048))
 
 @app.route('/retrieve', methods = ['POST'])
 def retrieve():
@@ -90,18 +104,19 @@ def register():
 
 @app.route('/add', methods = ['POST'])
 def add():
-    if not request.json or not 'key' in request.json:
+    if not request.json or not 'auth' in request.json:
         abort(400)
     else:
-        api = db.api.find_one({
-            'key_hash': request.json['key'],
-        })
-        if api is not None:
-            abort(400)
+        if request.json['auth'] not in auth:
+            abort(403)
+        key = generate_key()
         db.api.insert_one({
-            'key_hash': request.json['key'],
+            'key_hash': hash(key, key_salt),
             'date_registered': datetime.now()
         })
+        print(key)
+        print(hash(key, ""))
+        print(hash(key, key_salt))
         return jsonify({
-            'key': request.json['key']
+            'key': key
         }), 200
