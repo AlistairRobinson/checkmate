@@ -1,6 +1,7 @@
 from flask import Flask, request, abort, jsonify
 from pymongo import MongoClient
 from datetime import datetime
+from hashlib import pbkdf2_hmac
 import random
 
 app = Flask(__name__)
@@ -38,6 +39,9 @@ def generate_words():
 
 print(generate_pin())
 print(generate_words())
+
+def hash(password, salt):
+    return pbkdf2_hmac('sha512', password, salt, 2048)
 
 @app.route('/retrieve', methods = ['POST'])
 def retrieve():
@@ -100,4 +104,4 @@ def add():
         })
         return jsonify({
             'key': request.json['key']
-        }), 200"
+        }), 200
