@@ -52,7 +52,6 @@ def generate_key():
 print(generate_pin())
 print(generate_words())
 print(generate_key())
-print(key_salt)
 
 def hash(password, salt):
     return binascii.b2a_base64(pbkdf2_hmac('sha512', password.encode(), salt.encode(), 2048))
@@ -62,9 +61,15 @@ def retrieve():
     if not request.json or not 'key' in request.json or not 'email' in request.json:
         abort(400)
     else:
+        api = db.api.find_one({
+            'key_hash': hash(request.json['key'], key_salt)
+        })
+        if api is None:
+            abort(400)
+        salt = api['api_salt']
         user = db.registry.find_one({
-            'key_hash': request.json['key'],
-            'email_hash': request.json['email']
+            'key_hash': hash(request.json['key'], key_salt),
+            'email_hash': hash(request.json['email'], salt)
         })
         if user is None:
             abort(400)
@@ -81,15 +86,16 @@ def register():
         abort(400)
     else:
         api = db.api.find_one({
-            'key_hash': request.json['key'],
+            'key_hash': hash(request.json['key'], key_salt)
         })
         if api is None:
             abort(403)
+        salt = api['api_salt']
         words = generate_words()
         pin = generate_pin()
         db.registry.insert_one({
-            'key_hash': request.json['key'],
-            'email_hash': request.json['email'],
+            'key_hash': hash(request.json['key'], key_salt),
+            'email_hash': hash(request.json['email'], salt),
             'w1': words[0],
             'w2': words[1],
             'w3': words[2],
@@ -112,11 +118,9 @@ def add():
         key = generate_key()
         db.api.insert_one({
             'key_hash': hash(key, key_salt),
+            'api_salt': generate_key(),
             'date_registered': datetime.now()
         })
-        print(key)
-        print(hash(key, ""))
-        print(hash(key, key_salt))
         return jsonify({
             'key': key
         }), 200
