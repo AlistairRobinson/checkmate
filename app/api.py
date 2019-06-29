@@ -125,3 +125,14 @@ def add():
         return jsonify({
             'key': key
         }), 200
+
+@bp.route('/showcase', methods = ['POST'])
+def showcase():
+    words = generate_words()
+    pin = generate_pin()
+    return jsonify({
+        'w1': words[0],
+        'w2': words[1],
+        'w3': words[2],
+        'pin': pin
+    }), 200
