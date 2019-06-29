@@ -13,10 +13,23 @@ function typewriter() {
         loop: true,
         cursor: "_"
     });
-    console.log("hello");
-    typewriter.typeString('Hello World!')
-        .pauseFor(2500)
+    typewriter.typeString(getCode())
+        .pauseFor(1000)
         .deleteAll()
-        .pauseFor(2500)
+        .pauseFor(1000)
         .start();
+}
+
+function getCode() {
+    var example = "";
+    $.post({
+        url: "/showcase", 
+        datatype: "json",
+        async: false,
+        success: function(result) {
+            example = result['w1'] + " " + result['w2'] + " "
+                    + result['w3'] + " " + result['pin'];
+        }
+    });
+    return example;
 }
