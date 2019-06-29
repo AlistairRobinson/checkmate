@@ -10,14 +10,17 @@ $(document).ready(function() {
 function typewriter() {
     var showcase = document.getElementById('showcase');
     var typewriter = new Typewriter(showcase, { 
-        loop: true,
+        loop: false,
         cursor: "_"
     });
-    typewriter.typeString(getCode())
+    (function execute() { 
+        typewriter.deleteAll()
         .pauseFor(1000)
-        .deleteAll()
+        .typeString(getCode())
         .pauseFor(1000)
         .start();
+        setTimeout(execute, 10000);
+    })();
 }
 
 function getCode() {
