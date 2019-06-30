@@ -136,3 +136,38 @@ def showcase():
         'w3': words[2],
         'pin': pin
     }), 200
+
+@bp.route('/regen', methods = ['POST'])
+def regen():
+    if not request.json or not 'key' in request.json or not 'email' in request.json:
+        abort(400)
+    else:
+        api = db.api.find_one({
+            'key_hash': hash(request.json['key'], key_salt)
+        })
+        if api is None:
+            abort(403)
+        user = db.registry.find_one({
+            'email_hash': hash(request.json['email'].lower(), api['api_salt'])
+        })
+        if user is None:
+            abort(400)
+        db.registry.remove({
+            'email_hash': hash(request.json['email'].lower(), api['api_salt'])
+        })
+        words = generate_words()
+        pin = generate_pin()
+        db.registry.insert_one({
+            'key_hash': hash(request.json['key'], key_salt),
+            'email_hash': hash(request.json['email'].lower(), api['api_salt']),
+            'w1': words[0],
+            'w2': words[1],
+            'w3': words[2],
+            'pin': pin
+        })
+        return jsonify({
+            'w1': words[0],
+            'w2': words[1],
+            'w3': words[2],
+            'pin': pin
+        }), 200
