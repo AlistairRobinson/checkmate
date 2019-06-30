@@ -29,16 +29,16 @@
                 </div>
             </div>
         </nav>
-        <section class="hero is-medium is-dark is-bold">
+        <section class="hero is-large is-dark is-bold">
             <div class="hero-body">
                 <div class="columns is-vcentered">
                     <div class="column is-two-thirds">
                         <div class="container">
-                            <h1 class="title is-1">Checkmate. Phishing protection anyone can use.</h1>
+                            <h1 class="title is-1">Phishing protection anyone can use.</h1>
                             <h4 class="subtitle">An anti-phishing API built for non technical users.</h4>
                         </div>
                     </div>
-                    <div class="column">
+                    <div class="column is-one-third">
                         <div class="content is-medium is-family-monospace">
                             > <span id="showcase"> </span>
                         </div>
@@ -53,8 +53,7 @@
                         <div class="content is-medium">
                             <h2 class="title is-2">Phishing is a big problem</h2>
                             <p>Every day, more and more people fall victim to online phishing scams.</p>
-                            <p>Technical users are designing complex ways to protect organisations from phishing attacks.</p>
-                            <p>Non technical users are taught to detect phishing by checking for typos or dodgy email addresses.</p>
+                            <p>Technical users are designing ways to protect organisations from phishing attacks, but non technical users are taught to detect phishing by checking for typos.</p>
                             <p><strong>In the 21st Century, that isn't enough.</strong></p>
                         </div>
                     </div>
@@ -72,20 +71,50 @@
         <section class="section">
             <div class="container">
                 <div class="columns is-vcentered">
-                    <div class="column">
-                        <h2 class="title is-2">Examples go here</h2>
-                    </div>
-                    <div class="column is-two-thirds">
-                        <div class="content is-large">
+                    <div class="column is-three-fifths">
+                        <div class="content is-medium has text-justify">
                             <h2 class="title is-2">Here's our solution</h2>
-                            <p>
-                                Checkmate allows users to <strong>mutually authenticate</strong> clients in their
-                                communications, from emails to calls, using a secret code only the client can access. 
-                                This allows users to detect scammers who can't access their secret code.
-                            </p>
-                            <p>
-                                <strong>Users can instantly recognise impersonators</strong>
-                            </p>
+                            <p>We're designing a standardised way to mutually authenticate clients across nearly any communication medium.</p>
+                            <p>Checkmate codes are three words and a four digit PIN which are unique to a user's account with a client, which only the client has direct access to.</p>
+                            <p><strong>Users can request and verify a code to authenticate the client themselves.</strong></p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="notification is-dark">
+                            <div class="content is-medium is-family-secondary has-text-right">
+                                <h2 class="title is-1">> 180 trillion</h2>
+                                <h5 class="subtitle">Possible user account codes, all generated with natural language processing</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="columns">
+                <div class="column">
+                    <div class="notification is-dark">
+                        <div class="content is-medium is-family-secondary">
+                            <h2 class="title is-4">Registration</h2>
+                            <ol type="1">
+                                <li>User registers with client</li>
+                                <li>Client registers user account with Checkmate using their private key</li>
+                                <li>Checkmate generates a new code for the account</li>
+                                <li>Client displays code to user whenever they log in</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="notification is-dark">
+                        <div class="content is-medium is-family-secondary">
+                            <h2 class="title is-4">Authentication</h2>
+                            <ol type="1">
+                                <li>Client requests a user's account code using their private key</li>
+                                <li>Checkmate returns a user's account code</li>
+                                <li>Client includes code in their communication with the user</li>
+                                <li>User verifies that the code matches the code they received during registration</li>
+                            </ol>
                         </div>
                     </div>
                 </div>
