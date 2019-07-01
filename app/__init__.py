@@ -7,6 +7,10 @@ def create_app(test_config=None):
     from . import api
     app.register_blueprint(api.bp)
 
+    from . import stats
+    app.jinja_env.globals['apis'] = stats.apis()
+    app.jinja_env.globals['accounts'] = stats.accounts()
+
     @app.after_request
     def after_request(response):
         csp = "default-src 'self' 'unsafe-inline' https://*.googleapis.com https://cdnjs.cloudflare.com https://use.fontawesome.com"
