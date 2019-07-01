@@ -25,9 +25,6 @@ with open('dict/adjectives.txt') as f:
 with open('dict/adverbs.txt') as f:
     adverbs = [l.rstrip('\n') for l in f]
 
-with open('secret/auth.txt') as f:
-    auth = [l.rstrip('\n') for l in f]
-
 with open('secret/salt.txt') as f:
     key_salt = [l.rstrip('\n') for l in f]
     key_salt = key_salt[0]
@@ -111,13 +108,17 @@ def register():
 
 @bp.route('/add', methods = ['POST'])
 def add():
-    if not request.json or not 'auth' in request.json:
+    if not request.json or not 'email' in request.json:
         abort(400)
     else:
-        if request.json['auth'] not in auth:
-            abort(403)
+        api = db.api.find_one({
+            'email': request.json['email']
+        })
+        if api is not None:
+            abort(400)
         key = generate_key()
         db.api.insert_one({
+            'api_email': request.json['email']
             'key_hash': hash(key, key_salt),
             'api_salt': generate_key(),
             'date_registered': datetime.now()

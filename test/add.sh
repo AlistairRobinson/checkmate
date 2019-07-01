@@ -1,1 +1,1 @@
-curl -i -H "Content-Type: application/json" -X POST -d '{"auth":"'$1'"}' http://localhost:5000/add
+curl -i -H "Content-Type: application/json" -X POST -d '{"email":"'$1'"}' http://localhost:5000/add
