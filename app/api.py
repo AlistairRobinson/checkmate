@@ -118,7 +118,7 @@ def add():
             abort(400)
         key = generate_key()
         db.api.insert_one({
-            'api_email': request.json['email']
+            'api_email': request.json['email'],
             'key_hash': hash(key, key_salt),
             'api_salt': generate_key(),
             'date_registered': datetime.now()
