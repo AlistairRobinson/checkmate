@@ -7,8 +7,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
         <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
         <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script defer src="../static/js/typewriter/core.js"></script>
-        <script defer src="../static/js/main.js"></script>
+        <script defer src="https://www.google.com/recaptcha/api.js" async></script>
     </head>
     <body>
         <nav class="navbar is-dark">
@@ -33,6 +32,9 @@
                 </div>
             </div>
         </nav>
+        <form>
+            <div class="g-recaptcha" data-sitekey="{{ sitekey }}"></div>
+        </form>
         <footer class="footer has-background-white">
             <div class="content has-text-centered">
                 <h4 class="title is-5">Developed by <a href="https://alistairrobinson.github.io">Alistair Robinson</a>. Website built with <a href="https://bulma.io/">Bulma</a>.</h4>
