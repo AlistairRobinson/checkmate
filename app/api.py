@@ -112,7 +112,7 @@ def add():
         abort(400)
     else:
         api = db.api.find_one({
-            'email': request.json['email']
+            'api_email': request.json['email']
         })
         if api is not None:
             abort(400)
