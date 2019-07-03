@@ -1,13 +1,110 @@
 <!DOCTYPE html>
-<head>
-    <title>Docs | Checkmate</title>
-</head>
-<body>
-    <h1>Documentation</h1>
-    <p>This is the documentation index for the Checkmate API</p>
-    <ul>
-        <li>Add</li>
-        <li>Register</li>
-        <li>Retrieve</li>
-    </ul>
-</body>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> > Docs > Checkmate</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+        <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <nav class="navbar is-dark">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item">
+                        <img src="../static/img/logo.png" alt="Logo">
+                    </a>
+                    <a role="button" class="navbar-burger" data-target="navmenu" aria-label="menu" aria-expanded="false">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="navbar-menu" id="navmenu">
+                    <div class="navbar-end">
+                        <a class="navbar-item">Home</a>
+                        <a class="navbar-item">Get Started</a>
+                        <a class="navbar-item is-active">Docs</a>
+                        <a class="navbar-item">About</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <section class="hero is-medium is-dark is-bold">
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                  <h1 class="title is-1">> Documentation</h1>
+                  <h2 class="subtitle">Everything you need to protect your users from phishing</h2>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <h1 class="title is-2 has-text-centered">> Endpoints</h1>
+                <h4 class="subtitle has-text-centered">Get familiar with our four API endpoints:</h4>
+                <div class="columns is-centered">
+                    <div class="column is-8">
+                        <div class="tile is-ancestor">
+                            <div class="tile is-vertical">
+                                <div class="tile">
+                                    <div class="tile is-parent is-vertical">
+                                        <a class="tile is-child notification is-dark">
+                                            <h3 class="title is-3">Add</h3>
+                                            <p class="subtitle">Register for an API key using an email address</p>
+                                        </a>
+                                        <a class="tile is-child notification is-dark">
+                                            <h3 class="title is-3">Register</h3>
+                                            <p class="subtitle">Register a user account for a Checkmate code</p>
+                                        </a>
+                                    </div>
+                                    <div class="tile is-parent is-vertical">
+                                        <a class="tile is-child notification is-dark">
+                                            <h3 class="title is-3">Retrieve</h3>
+                                            <p class="subtitle">Retrieve the Checkmate code for a user account</p>
+                                        </a>
+                                        <a class="tile is-child notification is-dark">
+                                            <h3 class="title is-3">Regen</h3>
+                                            <p class="subtitle">Generate a new Checkmate code for a user account</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <h1 class="title is-2 has-text-centered">> Recommended usage</h1>
+                <h4 class="subtitle has-text-centered">For the best experience using Checkmate, follow our recommended usage guide:</h4>
+                <div class="columns is-centered">
+                    <div class="column is-4">
+                        <div class="content">
+                            <h2 class="title is-5">> Registration</h2>
+                            <p>> User register for an account with client</p>
+                            <p>> Client registers user account with Checkmate using their private key and the user's email (see Register)</p>
+                            <p>> Checkmate generates a new code for the user's account</p>
+                            <p>> Client displays code to user whenever they log in and instructs them not to dicslose it</p>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="content">
+                            <h2 class="title is-5">> Authentication</h2>
+                            <p>> Client requests a user's account code using their private key and email (see Retrieve)</p>
+                            <p>> Checkmate returns the user's account code</p>
+                            <p>> Client includes code in their communication with the user</p>
+                            <p>> User verifies that the code matches the code they received during registration</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer has-background-white">
+            <div class="content has-text-centered">
+                <h4 class="title is-5">Developed by <a href="https://alistairrobinson.github.io">Alistair Robinson</a>. Website built with <a href="https://bulma.io/">Bulma</a>.</h4>
+            </div>
+        </footer>
+    </body>
+</html>
