@@ -7,6 +7,9 @@ def create_app(test_config=None):
     from . import api
     app.register_blueprint(api.bp)
 
+    from . import site
+    app.register_blueprint(site.bp)
+
     from . import stats
     app.jinja_env.globals['apis'] = stats.apis()
     app.jinja_env.globals['accounts'] = stats.accounts()
@@ -20,12 +23,4 @@ def create_app(test_config=None):
         response.headers['Content-Security-Policy'] = csp
         return response
     
-    @app.route('/', methods = ['GET'])
-    def index():
-        return render_template("index.html")
-
-    @app.route('/register', methods = ['GET'])
-    def register():
-        return render_template("register.html")
-
     return app
