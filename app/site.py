@@ -13,3 +13,7 @@ def register():
 @bp.route('/docs', methods = ['GET'])
 def docs():
     return render_template("docs/index.html")
+
+@bp.route('/docs/add', methods = ['GET'])
+def docs_add():
+    return render_template("docs/add.html")
