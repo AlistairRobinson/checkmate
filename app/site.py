@@ -17,3 +17,7 @@ def docs():
 @bp.route('/docs/add', methods = ['GET'])
 def docs_add():
     return render_template("docs/add.html")
+
+@bp.route('/docs/register', methods = ['GET'])
+def docs_register():
+    return render_template("docs/register.html")
