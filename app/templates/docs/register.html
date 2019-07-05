@@ -1,8 +1,147 @@
 <!DOCTYPE html>
-<head>
-    <title>Register | Checkmate</title>
-</head>
-<body>
-    <h1>Register</h1>
-    <p>This is the documentation page for Register.</p>
-</body>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> > Register > Checkmate</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+        <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <nav class="navbar is-dark">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item">
+                        <img src="../static/img/logo.png" alt="Logo">
+                    </a>
+                    <a role="button" class="navbar-burger" data-target="navmenu" aria-label="menu" aria-expanded="false">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="navbar-menu" id="navmenu">
+                    <div class="navbar-end">
+                        <a class="navbar-item">Home</a>
+                        <a class="navbar-item">Get Started</a>
+                        <a class="navbar-item">Docs</a>
+                        <a class="navbar-item">About</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <section class="hero is-medium is-dark is-bold">
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                  <h1 class="title is-1">> Register</h1>
+                  <h2 class="subtitle">Register a user account for a Checkmate code</h2>
+                  <p class="is-family-monospace">[url]/register</p>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="columns is-centered">
+                <div class="column is-3">
+                    <nav class="panel">
+                        <p class="panel-heading has-text-large">
+                            > Documentation
+                        </p>
+                        <a class="panel-block">
+                            <span class="panel-icon">
+                                <i class="fas fa-key" aria-hidden="true"></i>
+                            </span> > Add
+                        </a>
+                        <a class="panel-block is-active">
+                            <span class="panel-icon">
+                                <i class="fas fa-plus" aria-hidden="true"></i>
+                            </span> > Register
+                        </a>
+                        <a class="panel-block">
+                            <span class="panel-icon">
+                                <i class="fas fa-search" aria-hidden="true"></i>
+                            </span> > Retrieve
+                        </a>
+                        <a class="panel-block">
+                            <span class="panel-icon">
+                                <i class="fas fa-sync" aria-hidden="true"></i>
+                            </span> > Regen
+                        </a>
+                    </nav>
+                </div>
+                <div class="column is-two-thirds">
+                    <div class="container">
+                        <h1 class="title is-2">Usage</h1>
+                        <h4 class="subtitle">Registers a user account for a Checkmate code, which is only accessible by the owner of an API key</h4>
+                        <div class="content">
+                            <p>Register can be accessed via a HTTP POST request to <span class="is-family-monospace">[url]/register</span></p>
+                            <p>The POST request takes two mandatory arguments: <span class="is-family-monospace">key</span> and <span class="is-family-monospace">email</span></p>
+                        </div>
+                        <h1 class="title is-2">Parameters</h1>
+                        <div class="columns is-centered is-vcentered">
+                            <div class="column is-one-fifth">
+                                <h4 class="title is-5 is-family-monospace">key</h4>
+                            </div>
+                            <div class="column is-three-fifths">
+                                <p>The client's API key. See Add.</p>
+                            </div>
+                        </div>
+                        <div class="columns is-centered is-vcentered">
+                            <div class="column is-one-fifth">
+                                <h4 class="title is-5 is-family-monospace">email</h4>
+                            </div>
+                            <div class="column is-three-fifths">
+                                <p>The email associated with the user account. An email can only be registered once per API key.</p>
+                            </div>
+                        </div>
+                        <h1 class="title is-2">Example</h1>
+                        <div class="notification is-family-monospace">
+                            <div class="content">
+                                <p>{key:"mke2IS_CA5eUWVqM8J7QKvfCdT7CGlIvS9lWb4qiOosyINBeh-a1zqVRhs_EEFJEZ0nbPP-Rp3F2Tg8Fi9fYOQ", email:"a@b.com"}</p>
+                            </div>
+                        </div>
+                        <h1 class="title is-2">Result</h1>
+                        <div class="content">
+                            <p>
+                                If successful, returns the account's Checkmate code in the form of a JSON object containing <span class="is-family-monospace">w1, w2, w3, pin</span>,
+                                in string format along with a status code of <span class="is-family-monospace">200</span>.
+                            </p>
+                        </div>
+                        <h1 class="title is-2">Errors</h1>
+                        <div class="columns is-centered is-vcentered">
+                            <div class="column is-one-fifth">
+                                <h4 class="title is-5 is-family-monospace">400 Bad Request</h4>
+                            </div>
+                            <div class="column is-three-fifths">
+                                <p>The email already has a Checkmate code registered with the API key</p>
+                                <p>OR The email parameter was not included</p>
+                                <p>OR The key parameter was not included</p>
+                                <p>OR The data or content type of the request was not definied or recognised</p>
+                            </div>
+                        </div>
+                        <div class="columns is-centered is-vcentered">
+                            <div class="column is-one-fifth">
+                                <h4 class="title is-5 is-family-monospace">403 Forbidden</h4>
+                            </div>
+                            <div class="column is-three-fifths">
+                                <p>The API key was not recognised</p>
+                            </div>
+                        </div>
+                        <h1 class="title is-2">Try it out</h1>
+                        <h4 class="subtitle">Use the following shell script to test out the Register API endpoint</h4>
+                        <div class="notification is-family-monospace">
+                            <div class="content">
+                                <p>curl -i -H "Content-Type: application/json" -X POST -d '{"key":"'$1'", "email":"'$2'"}' [url]/register</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer has-background-white">
+            <div class="content has-text-centered">
+                <h4 class="title is-5">Developed by <a href="https://alistairrobinson.github.io">Alistair Robinson</a>. Website built with <a href="https://bulma.io/">Bulma</a>.</h4>
+            </div>
+        </footer>
+    </body>
+</html>
