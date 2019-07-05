@@ -11,6 +11,7 @@ def register():
     return render_template("register.html")
 
 @bp.route('/docs', methods = ['GET'])
+@bp.route('/docs/', methods = ['GET'])
 def docs():
     return render_template("docs/index.html")
 
