@@ -72,18 +72,18 @@
                 <div class="column is-two-thirds">
                     <div class="container">
                         <h1 class="title is-2">Usage</h1>
+                        <h4 class="subtitle">Registers a client email and generates an API key needed to use other functionality.</h4>
                         <div class="content">
-                            <p>Registers a client email and generates an API key needed to use other functionality.</p>
                             <p>Add can be accessed via a HTTP POST request to <span class="is-family-monospace">[url]/add</span></p>
-                            <p>The POST request takes one mandatory argument, <span class="is-family-monospace">email</span>, which is the client's email</p>
+                            <p>The POST request takes one mandatory argument, <span class="is-family-monospace">email</span></p>
                         </div>
                         <h1 class="title is-2">Parameters</h1>
-                        <div class="columns is-centered">
+                        <div class="columns is-centered is-vcentered">
                             <div class="column is-one-fifth">
                                 <h4 class="title is-5 is-family-monospace">email</h4>
                             </div>
                             <div class="column is-three-fifths">
-                                <p>The client's email in string format</p>
+                                <p>The client's email in string format.</p>
                             </div>
                         </div>
                         <h1 class="title is-2">Example</h1>
@@ -100,7 +100,7 @@
                             </p>
                         </div>
                         <h1 class="title is-2">Errors</h1>
-                        <div class="columns is-centered">
+                        <div class="columns is-centered is-vcentered">
                             <div class="column is-one-fifth">
                                 <h4 class="title is-5 is-family-monospace">400 Bad Request</h4>
                             </div>
@@ -108,6 +108,13 @@
                                 <p>The email already has a registered API key</p>
                                 <p>OR The email parameter was not included</p>
                                 <p>OR The data or content type of the request was not definied or recognised</p>
+                            </div>
+                        </div>
+                        <h1 class="title is-2">Try it out</h1>
+                        <h4 class="subtitle">Use the following shell script to test out the Register API endpoint</h4>
+                        <div class="notification is-family-monospace">
+                            <div class="content">
+                                <p>curl -i -H "Content-Type: application/json" -X POST -d '{"email":"'$1'"}' [url]/add</p>
                             </div>
                         </div>
                     </div>
