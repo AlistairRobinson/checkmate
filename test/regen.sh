@@ -1,1 +1,0 @@
-curl -i -H "Content-Type: application/json" -X POST -d '{"key":"'$1'", "email":"'$2'"}' http://localhost:5000/regen

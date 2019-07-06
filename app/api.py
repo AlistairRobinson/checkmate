@@ -144,8 +144,8 @@ def showcase():
         'pin': pin
     }), 200
 
-@bp.route('/regen', methods = ['POST'])
-def regen():
+@bp.route('/delete', methods = ['POST'])
+def delete():
     if not request.json or not 'key' in request.json or not 'email' in request.json:
         abort(400)
     else:
@@ -162,19 +162,6 @@ def regen():
         db.registry.remove({
             'email_hash': hash(request.json['email'].lower(), api['api_salt'])
         })
-        words = generate_words()
-        pin = generate_pin()
-        db.registry.insert_one({
-            'key_hash': hash(request.json['key'], key_salt),
-            'email_hash': hash(request.json['email'].lower(), api['api_salt']),
-            'w1': words[0],
-            'w2': words[1],
-            'w3': words[2],
-            'pin': pin
-        })
         return jsonify({
-            'w1': words[0],
-            'w2': words[1],
-            'w3': words[2],
-            'pin': pin
+            'email': request.json['email']
         }), 200
