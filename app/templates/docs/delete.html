@@ -12,7 +12,7 @@
         <nav class="navbar is-dark">
             <div class="container">
                 <div class="navbar-brand">
-                    <a class="navbar-item">
+                    <a class="navbar-item" href="/">
                         <img src="../../static/img/logo.png" alt="Logo">
                     </a>
                     <a role="button" class="navbar-burger" data-target="navmenu" aria-label="menu" aria-expanded="false">
@@ -23,10 +23,10 @@
                 </div>
                 <div class="navbar-menu" id="navmenu">
                     <div class="navbar-end">
-                        <a class="navbar-item">Home</a>
-                        <a class="navbar-item">Get Started</a>
-                        <a class="navbar-item">Docs</a>
-                        <a class="navbar-item">About</a>
+                        <a class="navbar-item" href="/">Home</a>
+                        <a class="navbar-item" href="/register/">Get Started</a>
+                        <a class="navbar-item is-active" href="/docs/">Docs</a>
+                        <a class="navbar-item" href="/about/">About</a>
                     </div>
                 </div>
             </div>
@@ -47,22 +47,22 @@
                         <p class="panel-heading has-text-large">
                             > Documentation
                         </p>
-                        <a class="panel-block">
+                        <a class="panel-block" href="/docs/add/">
                             <span class="panel-icon">
                                 <i class="fas fa-key" aria-hidden="true"></i>
                             </span> > Add
                         </a>
-                        <a class="panel-block">
+                        <a class="panel-block" href="/docs/register/">
                             <span class="panel-icon">
                                 <i class="fas fa-plus" aria-hidden="true"></i>
                             </span> > Register
                         </a>
-                        <a class="panel-block">
+                        <a class="panel-block" href="/docs/retrieve/">
                             <span class="panel-icon">
                                 <i class="fas fa-search" aria-hidden="true"></i>
                             </span> > Retrieve
                         </a>
-                        <a class="panel-block is-active">
+                        <a class="panel-block is-active" href="/docs/delete/">
                             <span class="panel-icon">
                                 <i class="fas fa-trash" aria-hidden="true"></i>
                             </span> > Delete
