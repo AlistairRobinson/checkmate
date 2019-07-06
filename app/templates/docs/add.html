@@ -13,7 +13,7 @@
             <div class="container">
                 <div class="navbar-brand">
                     <a class="navbar-item">
-                        <img src="../static/img/logo.png" alt="Logo">
+                        <img src="../../static/img/logo.png" alt="Logo">
                     </a>
                     <a role="button" class="navbar-burger" data-target="navmenu" aria-label="menu" aria-expanded="false">
                         <span aria-hidden="true"></span>
@@ -86,18 +86,19 @@
                                 <p>The client's email in string format.</p>
                             </div>
                         </div>
-                        <h1 class="title is-2">Example</h1>
-                        <div class="notification is-family-monospace">
-                            <div class="content">
-                                <p>{email:"a@b.com"}</p>
-                            </div>
-                        </div>
                         <h1 class="title is-2">Result</h1>
                         <div class="content">
                             <p>
                                 If successful, returns a JSON object containing the client's newly registered API key, <span class="is-family-monospace">key</span>,
                                 in string format along with a status code of <span class="is-family-monospace">200</span>.
                             </p>
+                        </div>
+                        <h1 class="title is-2">Example</h1>
+                        <div class="notification is-family-monospace">
+                            <div class="content">
+                                <p>sent: {email:"a@b.com"}</p>
+                                <p>received: {key:"mke2IS_CA5eUWVqM8J7QKvfCdT7CGlIvS9lWb4qiOosyINBeh-a1zqVRhs_EEFJEZ0nbPP-Rp3F2Tg8Fi9fYOQ"}, 200</p>
+                            </div>
                         </div>
                         <h1 class="title is-2">Errors</h1>
                         <div class="columns is-centered is-vcentered">

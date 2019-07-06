@@ -13,7 +13,7 @@
             <div class="container">
                 <div class="navbar-brand">
                     <a class="navbar-item">
-                        <img src="../static/img/logo.png" alt="Logo">
+                        <img src="../../static/img/logo.png" alt="Logo">
                     </a>
                     <a role="button" class="navbar-burger" data-target="navmenu" aria-label="menu" aria-expanded="false">
                         <span aria-hidden="true"></span>
@@ -94,19 +94,19 @@
                                 <p>The email associated with the user account.</p>
                             </div>
                         </div>
-                        <h1 class="title is-2">Example</h1>
-                        <div class="notification is-family-monospace">
-                            <div class="content">
-                                <p>{key:"mke2IS_CA5eUWVqM8J7QKvfCdT7CGlIvS9lWb4qiOosyINBeh-a1zqVRhs_EEFJEZ0nbPP-Rp3F2Tg8Fi9fYOQ", email:"a@b.com"}</p>
-                                <p>{w1:"present", w2:"proof", w3:"grimly", pin:"0746"}</p>
-                            </div>
-                        </div>
                         <h1 class="title is-2">Result</h1>
                         <div class="content">
                             <p>
-                                If successful, returns the account's Checkmate code in the form of a JSON object containing <span class="is-family-monospace">w1, w2, w3, pin</span>,
+                                If successful, returns the account's Checkmate code in the form of a JSON object containing <span class="is-family-monospace">w1, w2, w3, pin</span>
                                 in string format along with a status code of <span class="is-family-monospace">200</span>.
                             </p>
+                        </div>
+                        <h1 class="title is-2">Example</h1>
+                        <div class="notification is-family-monospace">
+                            <div class="content">
+                                <p>sent: {key:"mke2IS_CA5eUWVqM8J7QKvfCdT7CGlIvS9lWb4qiOosyINBeh-a1zqVRhs_EEFJEZ0nbPP-Rp3F2Tg8Fi9fYOQ", email:"a@b.com"}</p>
+                                <p>received: {w1:"present", w2:"proof", w3:"grimly", pin:"0746"}, 200</p>
+                            </div>
                         </div>
                         <h1 class="title is-2">Errors</h1>
                         <div class="columns is-centered is-vcentered">
