@@ -88,13 +88,13 @@ def register():
         })
         if api is None:
             abort(403)
+        salt = api['api_salt']
         user = db.registry.find_one({
             'key_hash': hash(request.json['key'], key_salt),
             'email_hash': hash(request.json['email'].lower(), salt)
         })
         if user is not None:
             abort(400)
-        salt = api['api_salt']
         words = generate_words()
         pin = generate_pin()
         db.registry.insert_one({
