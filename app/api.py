@@ -63,7 +63,7 @@ def retrieve():
             'key_hash': hash(request.json['key'], key_salt)
         })
         if api is None:
-            abort(400)
+            abort(403)
         salt = api['api_salt']
         user = db.registry.find_one({
             'key_hash': hash(request.json['key'], key_salt),
