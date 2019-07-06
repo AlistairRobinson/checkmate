@@ -16,9 +16,16 @@ def docs():
     return render_template("docs/index.html")
 
 @bp.route('/docs/add', methods = ['GET'])
+@bp.route('/docs/add/', methods = ['GET'])
 def docs_add():
     return render_template("docs/add.html")
 
 @bp.route('/docs/register', methods = ['GET'])
+@bp.route('/docs/register/', methods = ['GET'])
 def docs_register():
     return render_template("docs/register.html")
+
+@bp.route('/docs/retrieve', methods = ['GET'])
+@bp.route('/docs/retrieve/', methods = ['GET'])
+def docs_retrieve():
+    return render_template("docs/retrieve.html")
