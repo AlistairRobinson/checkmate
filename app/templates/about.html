@@ -1,7 +1,76 @@
 <!DOCTYPE html>
-<head>
-    <title>About | Checkmate</title>
-</head>
-<body>
-    <h1>About</h1>
-</body>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> > About > Checkmate</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+        <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <nav class="navbar is-dark">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item">
+                        <img src="../static/img/logo.png" alt="Logo">
+                    </a>
+                    <a role="button" class="navbar-burger" data-target="navmenu" aria-label="menu" aria-expanded="false">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="navbar-menu" id="navmenu">
+                    <div class="navbar-end">
+                        <a class="navbar-item">Home</a>
+                        <a class="navbar-item">Get Started</a>
+                        <a class="navbar-item">Docs</a>
+                        <a class="navbar-item is-active">About</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <section class="hero is-medium is-dark is-bold">
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                  <h1 class="title is-1">"As nice as a complex [phishing protection] system would be, I don’t think it would stop my mum from forwarding me her phishing emails."</h1>
+                  <h2 class="subtitle">- Alistair Robinson, Checkmate Lead Developer</h2>
+                </div>
+            </div>
+        </section>
+        <section class="section is-medium">
+            <div class="container has-text-centered">
+                <div class="columns is-centered">
+                    <div class="column is-two-thirds">
+                        <h1 class="title is-2">Checkmate is a passion project...</h1>
+                        <div class="content has-text-justified is-medium">
+                            <p>
+                                ...developed with the initial goal of being so simple and foolproof that anyone could utilise the protection it offers, regardless of technical ability. 
+                                The initial idea came from diceware password generation, which recommends that users use passwords comprised of five or more sequential words rather than 
+                                short, overly complex passwords that are difficult to remember. 
+                            </p>
+                            <p>
+                                At a similar time I noticed that, when trying to write up a list of rules for my parents to 
+                                follow when trying to identify spam emails, I could never comprehensively guarantee that an email was from its sender - particularly if the attackers has put 
+                                thought into their email design and had spear phished its recipient. The medium was lacking a form of mutual authentication.
+                            </p>
+                            <p>These two ideas combined to form Checkmate codes</p>
+                            <p>
+                                I do not expect Checkmate to become the next big thing. It would be difficult and morally dubious for me to 
+                                monetise such a simple and effective idea, so for now, I'm willing to let it live on as a record. A trophy of the 
+                                first big idea I had that I carried all the way through from start to finish.
+                            </p>
+                        </div>
+                        <a class="title button is-dark is-rounded is-3"> > Read more</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer has-background-white">
+            <div class="content has-text-centered">
+                <h4 class="title is-5">Developed by <a href="https://alistairrobinson.github.io">Alistair Robinson</a>. Website built with <a href="https://bulma.io/">Bulma</a>.</h4>
+            </div>
+        </footer>
+    </body>
+</html>
