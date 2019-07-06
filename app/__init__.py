@@ -11,9 +11,8 @@ def create_app(test_config=None):
     app.register_blueprint(site.bp)
 
     from . import stats
-    app.jinja_env.globals['apis'] = stats.apis()
-    app.jinja_env.globals['accounts'] = stats.accounts()
-    app.jinja_env.globals['sitekey'] = stats.sitekey()
+    app.jinja_env.globals['apis'] = stats.apis
+    app.jinja_env.globals['accounts'] = stats.accounts
 
     @app.after_request
     def after_request(response):
