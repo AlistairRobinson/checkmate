@@ -29,3 +29,8 @@ def docs_register():
 @bp.route('/docs/retrieve/', methods = ['GET'])
 def docs_retrieve():
     return render_template("docs/retrieve.html")
+
+@bp.route('/docs/delete', methods = ['GET'])
+@bp.route('/docs/delete/', methods = ['GET'])
+def docs_delete():
+    return render_template("docs/delete.html")
