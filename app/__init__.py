@@ -3,13 +3,13 @@ from flask import Flask, request, abort, jsonify, Blueprint, render_template
 application = Flask(__name__)
 app = application
 
-from . import api
+from app import api
 app.register_blueprint(api.bp)
 
-from . import site
+from app import site
 app.register_blueprint(site.bp)
 
-from . import stats
+from app import stats
 app.jinja_env.globals['apis'] = stats.apis
 app.jinja_env.globals['accounts'] = stats.accounts
 
