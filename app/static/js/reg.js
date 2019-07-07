@@ -25,7 +25,7 @@ $(document).ready(function() {
 function complete() {
     return function(result) {
         $('#registrationform').fadeOut(500, function() {
-            $('#registrationform').replaceWith("<h1 class='title is-1 has-text-black'>Registration successful</h1>" +
+            $('#registrationform').replaceWith("<h1 class='title is-2 has-text-black'>Registration successful</h1>" +
             "<p>Your key is: </p><h4 class='title is-4 is-family-monospace'>" + result['key'] + "</h4>" + 
             "<p>Please save your key and keep it safe - you will not be able to access it later.</p>" + 
             "<p>Now check out our <a class='has-text-weight-semibold has-text-black' href='/docs'>documentation</a> to start registering user accounts.</p>");
