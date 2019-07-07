@@ -1,6 +1,6 @@
 # Checkmate
 
-Online phishing attacks pose a complex problem to all online users. The Checkmate API provides a simple solution.
+Online phishing attacks pose a complex problem to all online users. The Checkmate API provides a simple solution. Available at http://checkmate.eu-west-2.elasticbeanstalk.com/.
 
 ## Overview
 
