@@ -8,16 +8,16 @@
         <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
         <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script defer src="https://www.google.com/recaptcha/api.js" async></script>
-        <script defer src="../static/js/reg.js"></script>
-        <script defer src="../static/js/typewriter/core.js"></script>
-        <script defer src="../static/js/main.js"></script>
+        <script defer src="{{ url_for('static', filename='../static/js/reg.js') }}"></script>
+        <script defer src="{{ url_for('static', filename='../static/js/typewriter/core.js') }}"></script>
+        <script defer src="{{ url_for('static', filename='../static/js/main.js') }}"></script>
     </head>
     <body>
         <nav class="navbar is-dark">
             <div class="container">
                 <div class="navbar-brand">
                     <a class="navbar-item" href="/">
-                        <img src="../static/img/logo.png" alt="Logo">
+                        <img src="{{ url_for('static', filename='../static/img/logo.png') }}" alt="Logo">
                     </a>
                     <a role="button" class="navbar-burger" data-target="navmenu" aria-label="menu" aria-expanded="false">
                         <span aria-hidden="true"></span>

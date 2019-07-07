@@ -40,15 +40,3 @@ def docs_retrieve():
 @bp.route('/docs/delete/', methods = ['GET'])
 def docs_delete():
     return render_template("docs/delete.html")
-
-@bp.route('/static/js/typewriter/core.js', methods = ['GET'])
-def static_typewriter_js():
-    return render_template("../static/js/typewriter/core.js")
-
-@bp.route('/static/js/main.js', methods = ['GET'])
-def static_main_js():
-    return render_template("../static/js/main.js")
-
-@bp.route('/static/js/reg.js', methods = ['GET'])
-def static_reg_js():
-    return render_template("../static/js/reg.js")
