@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> Checkmate</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='../static/img/favicon.ico') }}">
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+        <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script defer src="{{ url_for('static', filename='../static/js/main.js') }}"></script>
+    </head>
+    <body>
+        <nav class="navbar is-dark">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="/">
+                        <img src="{{ url_for('static', filename='../static/img/logo.png') }}" alt="Logo">
+                    </a>
+                    <a role="button" class="navbar-burger" data-target="navmenu" aria-label="menu" aria-expanded="false">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="navbar-menu" id="navmenu">
+                    <div class="navbar-end">
+                        <a class="navbar-item" href="/">Home</a>
+                        <a class="navbar-item" href="/register/">Get Started</a>
+                        <a class="navbar-item" href="/docs/">Docs</a>
+                        <a class="navbar-item" href="/about/">About</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <section class="hero is-fullheight is-dark is-bold">
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <h1 class="title is-1">Error 404</h1>
+                    <h4 class="subtitle">Better luck next time</h4>
+                </div>
+            </div>
+        </section>
+        <footer class="footer has-background-white">
+            <div class="content has-text-centered">
+                <h4 class="title is-5">Developed by <a href="https://alistairrobinson.github.io">Alistair Robinson</a>. Website built with <a href="https://bulma.io/">Bulma</a>.</h4>
+            </div>
+        </footer>
+    </body>
+</html>
