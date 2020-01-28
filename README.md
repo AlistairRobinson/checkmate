@@ -29,7 +29,3 @@ Possible future functionality:
 ## Authors
 
 Developed by [Alistair Robinson](https://github.com/AlistairRobinson)
-
-## Acknowledgements
-
-- Dr Adam Chester (University of Warwick, Department of Computer Science) for providing insight into future development of the project
